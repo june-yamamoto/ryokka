@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Flex, Text } from "@chakra-ui/react";
 import { HomePage } from "@/components/home/HomePage";
 
-export default function Home() {
+const Home = () => {
     return (
         <>
             <Head>
@@ -12,3 +12,5 @@ export default function Home() {
         </>
     );
 }
+
+export default Home;

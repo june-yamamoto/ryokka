@@ -5,16 +5,14 @@ export const HomePageBody = () => {
     return (
         <Container maxW="container.md">
             <Flex padding="8px">
-                <Heading as="header" fontSize="2xl">
-                    ボディです
-                </Heading>
+                <Heading>ボディです</Heading>
             </Flex>
             <Flex padding="8px">
-                <Link href="/app/new" passHref>
-                    <Button type="button" variant="solid" colorScheme="yellow">
-                        はじめるボタン
-                    </Button>
-                </Link>
+                <Button type="button" variant="solid" colorScheme="yellow" width="100%">
+                    <Link href="/app/new" passHref>
+                        はじめる
+                    </Link>
+                </Button>
             </Flex>
         </Container>
     );

@@ -3,13 +3,13 @@ import NextLink from "next/link";
 
 export const Header = () => {
     return (
-        <Box px={4} bgColor="yellow.100">
+        <Box px={4} bgColor="brand.50">
             <Container maxW="container.md">
                 <Flex
                     as="header"
                     py="4"
-                    justifyContent="space-between"
                     alignItems="center"
+                    justifyContent="center"
                 >
                     <NextLink href="/" passHref>
                         <Heading
