@@ -1,8 +1,8 @@
 import { Header } from "@/components/header/Header";
+import { StoredEvent, StoredEvents } from "@/types/StoredEvent";
 import {
     Button,
     Container,
-    Divider,
     FormControl,
     FormLabel,
     Input,
@@ -10,6 +10,7 @@ import {
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback, useRef, useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import { UUID } from "uuidjs";
 
 const New = () => {
@@ -17,12 +18,14 @@ const New = () => {
     const [eventName, setEventName] = useState("");
     const [eventDate, setEventDate] = useState("");
 
+    const [events, setEvents] = useLocalStorage<StoredEvents>("events", {})
+
     const handleClickSubmit = useCallback(() => {
         const ID = UUID.generate();
+        const _events = events;
+        setEvents({[ID]: {name: eventName, date: eventDate, item: []}, ...events});
         router.push(`/app/event/${ID}`);
-    }, [router]);
-
-    console.log(eventName, eventDate);
+    }, [router, eventName, eventDate, events]);
 
     return (
         <>
