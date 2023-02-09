@@ -27,7 +27,6 @@ const Id = () => {
     }, [events, id]);
 
     const handleClickSubmit = useCallback(() => {
-        console.log("handleClickSubmit");
         if (!event) return;
         if (!(typeof id === "string")) return;
         // 対象のイベントにitem(荷物)を1個追加する
@@ -41,8 +40,7 @@ const Id = () => {
     }, [event, events, id, newItemName, setEvents]);
 
     const handleClickCheckbox = useCallback(
-        (name: string, e: Event) => {
-            console.log("handleClickCheckbox", name);
+        (name: string) => {
             if (!event) return;
             if (!(typeof id === "string")) return;
 
@@ -101,8 +99,8 @@ const Id = () => {
                             <div key={_item.name}>
                                 <input
                                     type="checkbox"
-                                    onClick={(e) =>
-                                        handleClickCheckbox(_item.name, e)
+                                    onClick={() =>
+                                        handleClickCheckbox(_item.name)
                                     }
                                     checked={_item.checked}
                                 />
